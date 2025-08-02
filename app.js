@@ -8,23 +8,23 @@ function randomNumber(){
 
 button.addEventListener('click', function(){
     const id = randomNumber();
-const url = `https://superheroapi.com/api.php/ab20f884622d21f451ff01bbbbc975e9/${id}`
+    const url = `https://superheroapi.com/api.php/ab20f884622d21f451ff01bbbbc975e9/${id}`
 
-fetch(url)
-.then(response => response.json())
-.then(data => {
-    img.src = data.image.url
-    img.style.display = 'block';
-    name.textContent = data.name
-})
-.catch(error => {
-    Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "Something went wrong!",
-  footer: '<a href="#">Why do I have this issue?</a>'
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            img.src = data.image.url
+            img.style.display = 'block';
+            name.textContent = data.name
+        })
+        .catch(error => {
+            Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+    });
 });
-});
-} );
 
 
